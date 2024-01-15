@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Sharing App</title>
+</head>
+<body>
+    <% if(locals.fileLink != null){ %>
+        <div style="margin-bottom: 1rem;margin-left: 30%;">
+            Your File is Uploaded At 📁
+            <a href="<%= locals.fileLink  %>"><%= locals.fileLink  %></a>
+        </div>
+    <%} %>
+    <form action="/upload" method="post" enctype="multipart/form-data" style="display:grid;gap:.5rem;grid-template-columns: auto 1fr;max-width: 500px;margin: 0 auto;">
+        File <input type="file" name="file" required/><br>
+        Password <input type="password" name="password"><br>
+        <button type="submit" style="grid-column: span 2;">Share</button>
+    </form>
+</body>
+</html>
